@@ -23,7 +23,7 @@ task :publish => [:generate] do
   Dir.chdir TMP
   File.open(".nojekyll", "wb") { |f| f.puts("Locallly generated site.") }
 
-    system "git init"
+    system "git pull"
     system "git add ."
     message = "Site updates on #{Time.now.utc}"
     system "git commit -m #{message.inspect}"
